@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - property:
+      name: uuid_function
+      dbms: postgresql
+      value: gen_random_uuid()
+  - changeSet:
+      id: Create Demo Table
+      author: Brandon George
+      changes:
+        - createTable:
+            tableName: demo_data
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  defaultValueComputed: ${uuid_function}
+                  constraints:
+                    - nullable: false
+                    - unique: true
+              - column:
+                  name: column1
+                  type: varchar(250)
+              - column:
+                  name: column2
+                  type: int

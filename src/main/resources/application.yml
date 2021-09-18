@@ -1,0 +1,12 @@
+spring:
+  liquibase:
+    drop-first: false
+    change-log: classpath:db/changelog/masterlog.yml
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: example
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/postgres
+    password: example
+    username: postgres
+    name: postgres
